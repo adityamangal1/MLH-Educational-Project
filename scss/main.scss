@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    pre{
+        white-space: pre-wrap;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .box{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100vw;
+        align-items: center;
+    }
+    .parent-content{
+        width: 60%;
+    }
+}

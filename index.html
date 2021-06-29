@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>A Beginner's Intro to Binary Search </title>
+    <!-- Meta tags for charset, author, description, etc. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Avaneesh Kumar">
+    <meta name="description"
+        content="This website is for educational purposes. Through this article, I aim to introduce programmer's to the concept of Dynamic Programming.">
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="./scss/main.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- This is your Navbar! It shows links at the top of the page. -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-2" href="/">Intro to Binary Search</a>
+
+            <!-- This is some Bootstrap magic! It automagically minimises your navbar on mobile, and this button lets you open it again!-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#intro">What is Binary search?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fibo">Kth Smallest Element</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#lis">Count triplets</a>
+                    </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- This is your Hero! it contains a tagline and a brief description of your project -->
+    <div class="p-5 pe-0 bg-dark d-flex flex-column flex-lg-row justify-content-center align-items-center">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold text-light">A Beginner's Intro to Binary Search</h1>
+            <p class="col-md-8 fs-4 text-light">Binary search is the most popular Search algorithm.It is efficient and
+                also one of the most commonly used techniques
+                that is used to solve problems.Binary search works only on a sorted set of elements. To use binary
+                search on a collection, the collection must first be
+                sorted.</p>
+        </div>
+        <!-- You can put any relevant image here. Please note if there is some important data on the image it could be cut out due to the offset. -->
+        <div class="col-lg-4 offset-none offset-lg-1 p-0 overflow-hidden shadow-lg">
+            <img class="adi" src="pic.png" alt="quote related to dynamic programming" width="720">
+        </div>
+    </div>
+    <div class="box">
+        <div class="parent-content">
+            <div id="intro" class="content bg-light py-5">
+                <h1 class="w-100 px-5 display-5 fw-bold text-primary">What is Binary Search?</h1>
+                <p class="mt-3 px-5 fs-5">Search a sorted array by repeatedly dividing the search interval in half.
+                    Begin with an interval covering the whole
+                    array. If the value of the search key is less than the item in the middle of the interval, narrow
+                    the interval to the
+                    lower half. Otherwise, narrow it to the upper half. Repeatedly check until the value is found or the
+                    interval is empty.</p>
+                <img src="pic2.png" class="px-5 pt-3">
+                <p class="px-5 pt-4 fs-5">We basically ignore half of the elements just after one comparison.</p>
+                <p class="px-5 text-primary fs-4">
+                    1.Compare x with the middle element.
+                </p>
+                <p class="px-5 text-primary fs-4">
+                    2.If x matches with the middle element, we return the mid index.
+                </p>
+                <p class="px-5 text-primary fs-4">
+                    3.Else If x is greater than the mid element, then x can only lie in the right half subarray after
+                    the mid element.So we
+                    recur for the right half.
+                </p>
+                <p class="px-5 text-primary fs-4">
+                    4.Else (x is smaller) recur for the left half.
+                </p>
+            </div>
+            <div id="fibo" class="content bg-light px-5">
+                <h1 class="text-primary display-5 fw-bold">Kth Smallest Element in a sorted array formed by reversing
+                    subarrays from a random index</h1>
+                <p class="pt-4 fs-5">Given a sorted array arr[] of size N and an integer K, the task is to find Kth
+                    smallest element present in the array.
+                    The given array has been obtained by reversing subarrays {arr[0], arr[R]} and {arr[R + 1], arr[N –
+                    1]} at some random
+                    index R. If the key is not present in the array, print -1.</p>
+                <pre class="text-info px-4
+                    py-3 rounded-3 bg-dark">
+                    <p>Input: arr[] = { 4, 3, 2, 1, 8, 7, 6, 5 }, K = 2</p> 
+                    <p>Output: 2</p> 
+                    <p>Input: arr[] = { 10, 8, 6, 5, 2, 1, 13, 12 }, K = 3</p> 
+                    <p>Output: 5</p> 
+                </pre>
+                <p class="fs-5">Naive Approach: The simplest approach to solve the problem is to sort the given array
+                    arr[] in increasing order and
+                    print the Kth smallest element in the array.</p>
+                <pre class="text-info px-4
+                py-3 rounded-3 bg-dark">Explanation: Sorted form of the array arr[] is { 1, 2, 3, 4, 5, 6, 7, 8 }.
+Therefore, the 2nd smallest element in the array arr[] is 2.</pre>
+                <p class="text-primary display-5 fw-bold">Approach: </p>
+                <img src="pic3.png" class="w-100 shadow-lg rounded-3 img-thumbnail" />
+                <p class="mt-4 fs-5">The simplest approach to solve the problem is to sort the given array arr[] in
+                    increasing order and print the Kth
+                    smallest element in the array.
+                    <a href="https://www.geeksforgeeks.org/kth-smallest-element-in-a-sorted-array-formed-by-reversing-subarrays-from-a-random-index/"
+                        target="_blank">here</a>.
+                </p>
+                <p class="fs-4">Now the question arises how do we optimise this?</p>
+                <p class="fs-5">Efficient Approach: The optimal idea is based on the observation that the Rth element is
+                    the smallest element because
+                    the elements in the range [1, R] are reversed. Now, if the random index is R, it means subarray [1,
+                    R] and [R + 1, N]
+                    are sorted in decreasing order. Therefore, the task reduceS to finding the value of R which can be
+                    obtained using binary
+                    search. Finally, print the Kth smallest element</p>
+                <p class="fs-5">Below is the implementation of the above approach: </p>
+                <script src="https://gist.github.com/adityamangal1/2b46dfa848b4520d1559ac07e4d8a0de.js"></script>
+            </div>
+            <div id="lis" class="bg-light py-5 content px-5">
+                <h1 class="display-5 fw-bold text-primary">Count triplets from an array such that a[j] – a[i] ≤ a[k] –
+                    a[j] ≤ 2 * (a[j] – a[i])</h1>
+                <p class="pt-4 fs-5">
+                    Given an array arr[] of size N, consisting of distinct elements, the task is to count the number
+                    triplets such that
+                    (arr[j] – arr[i]) ≤ (arr[k] – arr[j]) ≤ 2 * (arr[j] – arr[i]) and arr[i] < arr[j] < arr[k] (1 ≤ i,
+                        j, k ≤ N and each of them should be distinct). </p>
+                        <p class="fs-5">
+                            Efficient Approach: The above approach can be optimized by Binary Search. Follow the steps
+                            below to solve the problem:
+                        </p>
+                        <p class="fs-5"></p>
+                        <p id="colo">1. Sort the array arr[]</p>
+                        <p id="colo">2. Iterate over the range [1, N] using a variable i and perform the following
+                            steps:</p>
+                        <p id="colo">3. Iterate in the range [i+1, N] using the variable j and perform the following
+                            steps:</p>
+                        <p id="colo">4. Initialize X as arr[j] – arr[i]</p>
+                        <p id="colo">5. Find the lower bound of arr[j]+X using lower_bound and store its index in the
+                            variable l.</p>
+                        <p id="colo">6. Similarly, find the upper bound of arr[j] + 2×X using the default function
+                            upper_bound and store its index in the variable r.</p>
+                        <p id="colo">7. Initialize X as arr[j] – arr[i].</p>
+                        <p id="colo">8. Add r-l to the variable ans..</p>
+                        <pre class="text-info px-4
+                    py-3 rounded-3 bg-dark">Below is the implementation of the above approach:</pre>
+                </p>
+                <p class="fs-5">Now that we have our recurrence ready, let's write the C++ code for the same.</p>
+                <script src="https://gist.github.com/adityamangal1/60a90e272969f6749e11b0f26ea7768a.js"></script>
+                Check Out this problem from below link now <a
+                    href="https://www.geeksforgeeks.org/count-triplets-from-an-array-such-that-aj-ai-ak-aj-2-aj-ai/"
+                    target="_blank"> Click here</a>
+                <p class="fs-4 fw-bold text-center text-primary pt-4">🎉 Congratulations you have learnt to write your
+                    first Binary Search code! 🎉</p>
+                <p class="fs-5 pt-4 text-center">Hope you learnt something new from this article and could understand
+                    all of the content given in it.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="py-5 bg-gradient bg-primary">
+        <h1 class="text-center text-white display-5 fw-bold pb-3">A Beginner's Intro to Binary Search</h1>
+        <p class="text-center text-white">&copy; 2021 | Aditya Mangal</p>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="./script.js" type="text/javascript"></script>
+</body>
+
+</html>
